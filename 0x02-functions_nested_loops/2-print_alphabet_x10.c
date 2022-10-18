@@ -6,7 +6,7 @@
  */
 void print_alphabet_x10(void)
 {
-  car c;
+  char c;
   int i;
 
   i = 0;
