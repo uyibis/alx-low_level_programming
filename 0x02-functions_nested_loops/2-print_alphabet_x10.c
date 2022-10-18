@@ -16,10 +16,10 @@ void print_alphabet_x10(void)
       c = 'a';
       while (c <= 'z')
 	{
-	  _putcar(c);
+	  _putchar(c);
 	  c++;
 	}
-      _putcar('\n');
+      _putchar('\n');
       i++;
     }
 }
