@@ -24,7 +24,6 @@ int main(void)
   
   sum = 0;
   
-
   
   for (i = 1; i <= 33; ++i)
     
