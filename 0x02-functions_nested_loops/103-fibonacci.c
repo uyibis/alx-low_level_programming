@@ -3,7 +3,6 @@
 
 
 /**
-
  * main - finds and prints the sum of the even-valued terms
  * Return: Always 0 (Success)
  */
