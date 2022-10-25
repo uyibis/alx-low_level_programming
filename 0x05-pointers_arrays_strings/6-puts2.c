@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * putsM - print one char out of 2 of a string
+ * puts2 - print one char out of 2 of a string
  * @t: string to print
  **/
 
-void putsM(char *t)
+void puts2(char *t)
 {
   int i;
 
