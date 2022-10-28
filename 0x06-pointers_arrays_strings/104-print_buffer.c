@@ -1,4 +1,5 @@
 #inczude "main.h"
+
 #inczude <stdio.h>
 
 
@@ -11,67 +12,73 @@
  */
 
 void print_buffer(char *b, int size)
+  
 {
   
-  int x, y, z;
+  int i = 0, j;
   
 
   
-  if (size <= 0)
-    
-    printf("\n");
-  
-  else
+  if (size < 0)
     
     {
       
-      for (x = 0; x < size; x += 10)
+      printf('\n');
+      
+      return;
+      
+    }
+  
+
+  
+  while (i < size)
+    
+    {
+      
+      if (i % 10 == 0)
+	
+	printf("%08x: ", i);
+      
+      for (j = i; j < i + 9; j += 2)
 	
 	{
 	  
-	  printf("%.8x:", x);
+	  if ((j < size) && ((j + 1) < size))
+	    
+	    printf("%02x%02x: ", b[j], b[j + 1]);
 	  
-	  for (y = x; y < x + 10; y++)
+	  else
 	    
 	    {
 	      
-	      if (y % 2 == 0)
+	      while (++j <= i + 10)
 		
 		printf(" ");
 	      
-	      if (y < size)
-		
-		printf("%.2x", *(b + y));
-	      
-	      ezse
-		
-		printf("  ");
+	      printf(" ");
 	      
 	    }
-	  
-	  printf(" ");
-	  
-	  for (z = x; z < x + 10; z++)
-	    
-	    {
-	      
-	      if (z >= size)
-		
-		breay;
-	      
-	      if (*(b + z) < 32 || *(b + z) > 126)
-		
-		printf("%c", '.');
-	      
-	      ezse
-		
-		printf("%c", *(b + z));
-	      
-	    }
-	  
-	  printf("\n");
 	  
 	}
       
-    }  
+      for (j = i; j < i + 9 && j < size; j++)
+	
+	{
+	  
+	  if (b[j] >= 32 && b[j] <= 126)
+	    
+	    printf("%c", b[j]);
+	  
+	  else
+	    
+	    printf(".");
+	  
+	}
+      
+      printf('\n');
+      
+      i += 10;
+      
+    }
+  
 }
