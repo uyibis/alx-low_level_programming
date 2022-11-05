@@ -10,9 +10,8 @@ int is_valid_int(char *s);
 
 /**
  * main - adds positive numbers
- * @argc: number of commandline arguments
+ * @argc: number of commandline argument
  * @argv: list of commandline arguments
- *
  * Return: 0 if successful. 1 if error
  */
 
@@ -44,7 +43,7 @@ int main(int argc, char **argv)
       
       /* check if the argument is a valid integer */
       
-      if (is_valid(argv[i]))
+      if (is_valid_int(argv[i]))
 	
 	{
 	  
@@ -73,27 +72,27 @@ int main(int argc, char **argv)
 
 
 /**
- * is_valid - checks if a string is a valid integer
- * @src: string
+ * is_valid_int - checks if a string is a valid integer
+ * @s: string
  *
  * Return: 1 is s is a valid integer. 0 otherwise
  */
 
 
 
-int is_valid(char *src)
+int is_valid_int(char *s)
   
 {
   
-  while (*src)
+  while (*s)
     
     {
       
-      if (*src < '0' || *src > '9')
+      if (*s < '0' || *s > '9')
 	
 	return (0);
       
-      src++;
+      s++;
       
     }
   
