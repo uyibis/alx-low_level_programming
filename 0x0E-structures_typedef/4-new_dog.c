@@ -1,69 +1,96 @@
 #include "dog.h"
 
-#include <string.h>
+#include <stdlib.h>
 
 
 
 /**
- * new_dog - creates a new dog
- * @name: name member of the dog
- * @age: age member of the dog
- * @owner: owner member of the dog
+ * new_dog - creates a new dog.
+ * @name: name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
  *
- * Return: pointer to the new dog_t
+ * Return: struct dog.
+ * if fails, returns NULL.
  */
 
-
-
 dog_t *new_dog(char *name, float age, char *owner)
+{
   
-{ 
-  char *temp_name;
+  dog_t *p_dog;
   
-  char *temp_owner;
-  
-  dog_t *new_doggo;
+  int i, lname, lowner;
   
 
   
-  temp_name = malloc(sizeof(*name) * (strlen(name) + 1));
+  p_dog = malloc(sizeof(*p_dog));
   
-  temp_owner = malloc(sizeof(*owner) * (strlen(owner) + 1));
-  
-  new_doggo = malloc(sizeof(dog_t));
-  
-
-  
-  if (temp_name && temp_owner && new_doggo)
+  if (p_dog == NULL || !(name) || !(owner))
     
     {
       
-      strcpy(temp_name, name);
-      
-      strcpy(temp_owner, owner);
-      
-      new_doggo->name = temp_name;
-      
-      new_doggo->age = age;
-      
-      new_doggo->owner = temp_owner;
-      
-    }
-  
-  else
-    
-    {
-      
-      free(temp_name);
-      
-      free(temp_owner);
-      
-      free(new_doggo);
+      free(p_dog);
       
       return (NULL);
       
     }
   
-  return (new_doggo);
+
+  
+  for (lname = 0; name[lname]; lname++)
+    
+    ;
+  
+
+  
+  for (lowner = 0; owner[lowner]; lowner++)
+    
+    ;
+  
+
+  
+  p_dog->name = malloc(lname + 1);
+  
+  p_dog->owner = malloc(lowner + 1);
+  
+
+  
+  if (!(p_dog->name) || !(p_dog->owner))
+    
+    {
+      
+      free(p_dog->owner);
+      
+      free(p_dog->name);
+      
+      free(p_dog);
+      
+      return (NULL);
+      
+    }
+  
+
+  
+  for (i = 0; i < lname; i++)
+    
+    p_dog->name[i] = name[i];
+  
+  p_dog->name[i] = '\0';
+  
+
+  
+  p_dog->age = age;
+  
+
+  
+  for (i = 0; i < lowner; i++)
+    
+    p_dog->owner[i] = owner[i];
+  
+  p_dog->owner[i] = '\0';
+  
+
+  
+  return (p_dog);
   
 }
