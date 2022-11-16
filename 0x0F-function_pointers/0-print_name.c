@@ -10,5 +10,5 @@
 void print_name(char *name, void (*c)(char *))
 {
 	if (name && c)
-		f(name);
+		c(name);
 }
